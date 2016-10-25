@@ -1,19 +1,26 @@
 <?php
+
+
 class HTML_Table {
 
-public function __construct(){
- function build_table($info){
+
+ public function build_table( array $info){
+ 
     // builds table
     $html = '<table>';
-    // top rop of table.
+    // top row of table.
     $html .= '<tr>';
-    foreach($info[0] as $key=>$value){
-            $html .= '<th>' . $key . '</th>';
+    //foreach($info[0] as $key=>$value){
+            //$html .= '<th>' . $value . '</th>';
+             $html .= '<th>' . ' Name   '. '</th>';
+             $html .= '<th>' . ' Age    '. '</th>';
+             $html .= '<th>' . ' Height '. '</th>';
+             // ' Age '. ' Height '. 
             //takes firstname , age and height from  array.`as the values.
-        }
+      //  }
     $html .= '</tr>';
     // start the body of the table.
-    $hmtl .= '<tbody>';
+    $html .= '<tbody>';
     // rows with information
     foreach( $info as $key=>$value){
         $html .= '<tr>';
@@ -28,22 +35,17 @@ public function __construct(){
     $html .= '</table>';
     return $html;
 }
+}
+
 
 $info = array(
     array('First Name'=>'Victor','Age'=> '22', 'Height'=> '6.8'),
     array('First Name'=>'Luke', 'Age'=> '22', 'Height'=> '6.5'),
     array('First Name'=>'Anthony', 'Age'=> '21' ,'Height'=> '5.9')
 );
-echo "This table is for displaying info inside an array." ;
-echo build_table($info); 
-return $this->build_table;
-}
-    }
-
 //instantiate.
 $table = new HTML_Table;
-print_r($table);
-
+echo $table->build_table($info);
 
 
 /*
